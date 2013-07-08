@@ -13,6 +13,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
 ## Try it
  * Update the "root" directive in src/sites/default.conf (document root)
  * Update the "user" directive in src/system.conf if needed (logs and fastcgi)
+ * Make sure "user" has access to the specified locations
  * run build/run.sh to restart Nginx in boilerplate mode
  * Go to http://127.0.0.1 (or to http://your_host_name)
 
@@ -21,3 +22,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Update the "user" directive in src/system.conf if needed
  * Create/migrate your vhosts to sites/
  * To disable a site change its config's file extention to anything other than .conf
+
+## If nothing works
+ * Check the contents of /var/log/nginx/default.error.log
+ * Create an issue on the project's github page

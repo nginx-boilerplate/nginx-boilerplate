@@ -15,7 +15,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * (optional) Update the "user" directive in src/nginx-bp/system.conf 
  * (optional) Make sure "user" has access to the locations specified in src/nginx-bp/system.conf (access logs, php socket, fastcgi tmp dirs)
  * (optional) Check src/nginx-bp/upstreams/php.conf to match your php-fpm setup (socket vs TCP/IP)
- * Run build/run.sh as privileged user to restart Nginx in boilerplate mode
+ * Run bin/run.sh as privileged user to restart Nginx in boilerplate mode
  * Go to http://localhost/ (or http://your_etc_hostname/, or http://127.0.0.1/)
 
 ## Install

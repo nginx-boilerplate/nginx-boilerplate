@@ -12,13 +12,17 @@ fi
 
 stop_nginx()
 {
-    echo "\nStopping Nginx\n"
+    echo
+    echo "Stopping Nginx"
+    echo
     kill `pgrep nginx` > /dev/null 2>&1
 }
 
 start_nginx()
 {
-    echo "\nStarting Nginx\n"
+    echo 
+    echo "Starting Nginx"
+    echo 
     nginx -c $basePath/nginx.conf
 }
 

@@ -12,13 +12,13 @@ fi
 
 stop_nginx()
 {
-    echo "\nStopping Nginx\n"
+    echo "Stopping Nginx"
     kill `pgrep nginx` > /dev/null 2>&1
 }
 
 start_nginx()
 {
-    echo "\nStarting Nginx\n"
+    echo "Starting Nginx"
     nginx -c $basePath/nginx.conf
 }
 
@@ -34,4 +34,7 @@ trap ctrl_c INT
 
 stop_nginx
 start_nginx
+
+echo Press Ctrl+C to stop Nginx
+
 sh $basePath/../bin/chmon.sh "echo Reloading Nginx; killall nginx; nginx -c $basePath/nginx.conf;" $basePath

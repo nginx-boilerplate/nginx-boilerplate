@@ -19,7 +19,7 @@ stop_nginx()
 start_nginx()
 {
     echo "Starting Nginx"
-    nginx -c $basePath/nginx.conf
+    nginx -c $basePath/nginx.conf -p $basePath
 }
 
 ctrl_c()
@@ -37,4 +37,4 @@ start_nginx
 
 echo Press Ctrl+C to stop Nginx
 
-sh $basePath/../bin/chmon.sh "echo Reloading Nginx; killall nginx; nginx -c $basePath/nginx.conf;" $basePath
+sh $basePath/../bin/chmon.sh "echo Reloading Nginx; killall nginx; nginx -c $basePath/nginx.conf -p $basePath;" $basePath

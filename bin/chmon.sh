@@ -51,5 +51,6 @@ compare ()
 echo 'Waiting for changes in '$path;
 
 while true; do
+    sleep 1
     compare
 done

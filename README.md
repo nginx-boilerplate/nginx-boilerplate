@@ -26,6 +26,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Create/migrate your vhosts to sites/
  * (optional) To disable a site change its config's file extention to anything other than .conf
 
-## If nothing works
+## If something doesn't work
+ * Make sure you have cgi.fix_pathinfo set to "1" or commented out in php.ini
  * Check the contents of /var/log/nginx/default.error.log
  * Create an issue on the project's github page

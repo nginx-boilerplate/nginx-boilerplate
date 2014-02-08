@@ -10,16 +10,32 @@ if [ "$(whoami)" != 'root' ]; then
     exit 1;
 fi
 
+NxBinary="";
+
+for N in nginx tengine
+do 
+    if which $N > /dev/null 2>&1;
+    then
+        NxBinary=$N;
+        break
+    fi
+done
+
+if [ "$NxBinary" = "" ]; then
+    echo "Please install Nginx/Tengine first.";
+    exit;
+fi
+
 stop_nginx()
 {
-    echo "Stopping Nginx"
-    kill `pgrep nginx` > /dev/null 2>&1
+    echo "Stopping $NxBinary"
+    kill `pgrep $NxBinary` > /dev/null 2>&1
 }
 
 start_nginx()
 {
-    echo "Starting Nginx"
-    nginx -c $basePath/nginx.conf -p $basePath
+    echo "Starting $NxBinary"
+    $NxBinary -c $basePath/nginx.conf -p $basePath
 }
 
 ctrl_c()
@@ -35,6 +51,6 @@ trap ctrl_c INT
 stop_nginx
 start_nginx
 
-echo Press Ctrl+C to stop Nginx
+echo Press Ctrl+C to stop $NxBinary
 
-sh $basePath/../bin/chmon.sh "echo Reloading Nginx; killall nginx; nginx -c $basePath/nginx.conf -p $basePath;" $basePath
+sh $basePath/../bin/chmon.sh "echo Reloading $NxBinary; killall $NxBinary; $NxBinary -c $basePath/nginx.conf -p $basePath;" $basePath

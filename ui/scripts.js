@@ -486,7 +486,6 @@ $(function() {
                     "generate_button": function() {
                         $.ajax({
                             url: '/generate.php',
-                            method: 'post',
                             data: values,
                             success: function() {
                                 console.log(arguments);
@@ -495,6 +494,10 @@ $(function() {
                                 console.log(arguments);
                             }
                         });
+                    },
+                    "download_button": function() {
+                        values.download = 1;
+                        location = '/generate.php?' + $.param(values);
                     }
                 }
             }

@@ -1,7 +1,7 @@
 <?php
 
 $config = array(
-    'server_name'          => 'localhost',
+    'server_name'          => 'example.com',
     'root_dir'             => '/var/www/localhost',
     //'http_port'            => 80,
     'support_https'        => 0,
@@ -44,9 +44,9 @@ $config = array(
 );
 
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (!empty($_GET)) {
 
-    $values = $_POST;
+    $values = $_GET;
 
     foreach ($config as $name => $value) {
         // Values not provided at all
@@ -301,8 +301,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         link('../sites-available/' . $values['server_name'] . '.conf', $values['server_name'] . '.conf');
     }
 
-    chmod($serverFile, 0777);
-    chmod($bootstrapFile, 0777);
-} elseif ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    posix_setuid(1000);
+
+    if (isset($values['download'])) {
+
+        $dest = '/tmp/' . uniqid('ngbp');
+
+        mkdir($dest);
+
+        $dirIterator = new RecursiveDirectoryIterator($baseDir . '/../', RecursiveDirectoryIterator::SKIP_DOTS);
+        $iterator = new RecursiveIteratorIterator($dirIterator, RecursiveIteratorIterator::SELF_FIRST);
+
+        foreach ($iterator as $item) {
+            if ($item->isDir()) {
+                $dirPath = $dest . '/' . $iterator->getSubPathName();
+                mkdir($dirPath);
+            } elseif ($item->getFileName() !== '.gitignore') {
+                $filePath = $dest . '/' . $iterator->getSubPathName();
+
+                if (is_link($item)) {
+                    symlink(readlink($item), $filePath);
+                } else {
+                    copy($item, $filePath);
+                }
+            }
+        }
+
+        `cd $dest && zip --symlinks -r ngbp.zip *`;
+
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename=' . basename($dest . '/ngbp.zip'));
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($dest . '/ngbp.zip'));
+        readfile($dest . '/ngbp.zip');
+    }
+} else {
     die(json_encode($config));
 }

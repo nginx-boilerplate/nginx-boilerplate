@@ -28,8 +28,9 @@ input.int {
     height: 60px;
 }
 
-
-#generate_button {
+#generate_button,
+#download_button
+{
     width: auto;
     font-size: 15px;
 }

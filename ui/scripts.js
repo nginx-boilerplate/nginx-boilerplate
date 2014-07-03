@@ -49,7 +49,7 @@ $(function() {
                             attr: 'placeholder="/var/www/example/"'
                         }
                     },
-                    {
+                    /*{
                         name: 'http_port',
                         type: 'int',
                         hint: 'Port to use',
@@ -57,7 +57,7 @@ $(function() {
                             attr: 'maxlength="8" class="int"',
                             caption: 'Http port'
                         }
-                    },
+                    },*/
                     {
                         name: 'support_https',
                         type: 'list',
@@ -91,8 +91,12 @@ $(function() {
                     }
                 ],
                 record: {
-                    http_port: values.http_port,
-                    support_https: values.support_https
+                    //http_port: values.http_port,
+                    support_https: values.support_https,
+                    ssl_cert: values.ssl_cert,
+                    ssl_key: values.ssl_key,
+                    root_dir: values.root_dir,
+                    server_name: values.server_name
                 }
             },
             basic: {
@@ -108,12 +112,27 @@ $(function() {
                     },
                     {
                         name: 'compress_response',
-                        type: 'text',
+                        type: 'list',
+                        options:
+                                {
+                                    items: [
+                                        {text: "Don't compress", value: 0},
+                                        {text: 1, value: 1},
+                                        {text: 2, value: 2},
+                                        {text: 3, value: 3},
+                                        {text: 4, value: 4},
+                                        {text: 5, value: 5},
+                                        {text: 6, value: 6},
+                                        {text: 7, value: 7},
+                                        {text: 8, value: 8},
+                                        {text: 9, value: 9}
+                                    ],
+                                    showNone: false
+                                },
                         html: {
-                            caption: 'Response compression level',
-                            attr: 'maxlength="1" class="int"'
+                            caption: 'Response compression level'
                         },
-                        hint: 'Use 0 to disable gzip compression'
+                        hint: 'Choose 0 to disable gzip compression'
                     },
                     {
                         name: 'protect_system_files',
@@ -327,7 +346,7 @@ $(function() {
                         }
                     },
                     {
-                        name: 'log_dynamic',
+                        name: 'log_humans',
                         type: 'checkbox',
                         html: {
                             caption: 'Log humans'
@@ -351,10 +370,25 @@ $(function() {
                     },
                     {
                         name: 'log_compress',
-                        type: 'int',
+                        type: 'list',
+                        options:
+                                {
+                                    items: [
+                                        {text: "Don't compress", value: 0},
+                                        {text: 1, value: 1},
+                                        {text: 2, value: 2},
+                                        {text: 3, value: 3},
+                                        {text: 4, value: 4},
+                                        {text: 5, value: 5},
+                                        {text: 6, value: 6},
+                                        {text: 7, value: 7},
+                                        {text: 8, value: 8},
+                                        {text: 9, value: 9}
+                                    ],
+                                    showNone: false
+                                },
                         html: {
-                            caption: 'Log compression level',
-                            attr: 'class="int"'
+                            caption: 'Log compression level'
                         }
                     },
                     {
@@ -381,7 +415,7 @@ $(function() {
                 ],
                 record: {
                     log_bots: values.log_bots,
-                    log_dynamic: values.log_dynamic,
+                    log_humans: values.log_humans,
                     flush_every_amount: values.flush_every_amount,
                     flush_every_time: values.flush_every_time,
                     log_compress: values.log_compress,
@@ -484,7 +518,7 @@ $(function() {
             jQuery.each(w2ui[targetLayout].fields, function(key, field) {
                 if ($(field).attr('type') === 'checkbox') {
                     $(field.el).click(function() {
-                        values[$(this).prop('id')] = $(this).prop('checked');
+                        values[$(this).prop('id')] = $(this).prop('checked') ? 1 : 0;
                     });
                 } else {
                     $(field.el).bind('input', function() {

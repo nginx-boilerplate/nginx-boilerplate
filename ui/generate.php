@@ -338,6 +338,9 @@ if (!empty($_GET)) {
         readfile($dest . '/ngbp.zip');
 
         `rm -rf $dest`;
+        unlink($serverFile);
+        unlink($bootstrapFile);
+        unlink($baseDir . '../sites-enabled/' . $values['server_name'] . '.conf');
     }
 } else {
     die(json_encode($config));

@@ -13,13 +13,13 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
 ## Demo
  http://ngbp.umkus.com/
 
-## Install in trial mode
- * Update the "root" directive in src/nginx-bp/bootstrap/example.conf
- * (optional) Check src/nginx-bp/upstreams/php.conf to match your php-fpm setup (socket vs TCP/IP)
+## Run in trial mode
  * Run bin/run.sh as privileged user to restart Nginx in boilerplate mode
+ * (optional) Update the "root" directive in src/nginx-bp/bootstrap/example.conf
+ * (optional) Check src/nginx-bp/upstreams/php.conf to match your php-fpm setup (socket vs TCP/IP)
  * Go to http://localhost/
 
-## Run the UI and change settings
+## Run in UI generator mode
  * Run bin/ui.sh to start the UI (you can provide a server:port as an optional argument)
  * Got to localhost:5517 (or whatever you specified as an optional argument)
  * Configure your boilerplate and hit the download button

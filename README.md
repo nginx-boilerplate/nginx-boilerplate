@@ -14,7 +14,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  http://ngbp.umkus.com/
 
 ## Install in trial mode
- * Update the "root" directive in src/sites/default.conf
+ * Update the "root" directive in src/nginx-bp/bootstrap/example.conf
  * (optional) Check src/nginx-bp/upstreams/php.conf to match your php-fpm setup (socket vs TCP/IP)
  * Run bin/run.sh as privileged user to restart Nginx in boilerplate mode
  * Go to http://localhost/

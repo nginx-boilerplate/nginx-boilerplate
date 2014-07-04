@@ -194,7 +194,7 @@ if (!empty($_GET)) {
         }
     }
 
-    $methods = [];
+    $methods = array();
     foreach ($values as $key => $value) {
         if (strpos($key, 'method_') === 0 && $value) {
             $methods[] = strtoupper(substr($key, 7));
@@ -207,7 +207,7 @@ if (!empty($_GET)) {
         $bootstrap = str_replace('OPTIONS|GET|HEAD|POST', $methods, $bootstrap);
     }
 
-    $errorLevels = ['Debug', 'Info', 'Notice', 'Warn', 'Error', 'Crit', 'Alert', 'Emerg'];
+    $errorLevels = array('Debug', 'Info', 'Notice', 'Warn', 'Error', 'Crit', 'Alert', 'Emerg');
     $errorLevel = strtolower($errorLevels[$values['error_level']]);
 
     $bootstrap = str_replace(' error;', ' ' . $errorLevel . ';', $bootstrap);

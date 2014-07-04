@@ -559,7 +559,7 @@ $(function() {
         onLayoutRendered('server');
     });
 
-    if (location.port !== 80) {
+    if (location.port !== 80 && location.port !== '') {
         $('#generate_button').prop('disabled', false);
     }
 });

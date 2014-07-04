@@ -23,7 +23,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Run `bin/ui.sh` to start the UI (you can provide a `server:port` as an optional argument)
  * Got to `localhost:5517` (or whatever you specified as an optional argument)
  * Configure your boilerplate and hit the download button
- * Optionally, if you have boilerplate running in a trial mode, hit test drive button to see how it works
+ * (optional) If you have boilerplate running in a trial mode, hit test drive button to see how it works live!
 
 ## If something doesn't work
  * Make sure you have `cgi.fix_pathinfo` set to `1` or commented out in php.ini

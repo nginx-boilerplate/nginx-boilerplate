@@ -50,14 +50,14 @@ $(function() {
                         }
                     },
                     /*{
-                        name: 'http_port',
-                        type: 'int',
-                        hint: 'Port to use',
-                        html: {
-                            attr: 'maxlength="8" class="int"',
-                            caption: 'Http port'
-                        }
-                    },*/
+                     name: 'http_port',
+                     type: 'int',
+                     hint: 'Port to use',
+                     html: {
+                     attr: 'maxlength="8" class="int"',
+                     caption: 'Http port'
+                     }
+                     },*/
                     {
                         name: 'support_https',
                         type: 'list',
@@ -488,7 +488,13 @@ $(function() {
                             url: '/generate.php',
                             data: values,
                             success: function() {
-                                console.log(arguments);
+                                $('<form/>')
+                                        .attr('action', 'http://' + values.server_name)
+                                        .attr('target', '_blank')
+                                        .attr('method', 'get')
+                                        .appendTo('body')
+                                        .submit()
+                                        .remove();
                             },
                             error: function() {
                                 console.log(arguments);

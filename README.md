@@ -11,21 +11,22 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Advanced logging
 
 ## Demo
- http://ngbp.umkus.com/
+ * http://ngbp.umkus.com/
 
 ## Run in trial mode
- * Run bin/run.sh as privileged user to restart Nginx in boilerplate mode
- * (optional) Update the "root" directive in src/nginx-bp/bootstrap/example.conf
- * (optional) Check src/nginx-bp/upstreams/php.conf to match your php-fpm setup (socket vs TCP/IP)
+ * Run `bin/run.sh` as privileged user to restart Nginx in boilerplate mode
+ * (optional) Update the `root` directive in `src/nginx-bp/bootstrap/example.conf`
+ * (optional) Check `src/nginx-bp/upstreams/php.conf` to match your php-fpm setup (socket vs TCP/IP)
  * Go to http://localhost/
 
 ## Run in UI generator mode
- * Run bin/ui.sh to start the UI (you can provide a server:port as an optional argument)
- * Got to localhost:5517 (or whatever you specified as an optional argument)
+ * Run `bin/ui.sh` to start the UI (you can provide a `server:port` as an optional argument)
+ * Got to `localhost:5517` (or whatever you specified as an optional argument)
  * Configure your boilerplate and hit the download button
  * Optionally, if you have boilerplate running in a trial mode, hit test drive button to see how it works
 
 ## If something doesn't work
- * Make sure you have cgi.fix_pathinfo set to "1" or commented out in php.ini
- * Check the contents of /var/log/nginx/default.error.log
+ * Make sure you have `cgi.fix_pathinfo` set to `1` or commented out in php.ini
+ * Check the contents of `/var/log/nginx/default.error.log`
+ * Make sure to have proper file/folder permissions for config files
  * Create an issue on the project's github page

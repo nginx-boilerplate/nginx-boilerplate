@@ -1,7 +1,7 @@
 <?php
 
 $config = array(
-    'server_name'          => 'example.com',
+    'server_name'          => 'test.com',
     'root_dir'             => '/var/www/localhost',
     //'http_port'            => 80,
     'support_https'        => 0,

@@ -106,9 +106,9 @@ $(function() {
                         type: 'float',
                         html: {
                             attr: 'maxlength="8" class="int"',
-                            caption: 'Allow uploads (Mbs)'
+                            caption: 'Max upload file size (Mbs)'
                         },
-                        hint: 'Use zero to disable'
+                        hint: 'Use zero for automatic value'
                     },
                     {
                         name: 'compress_response',
@@ -158,7 +158,8 @@ $(function() {
                         html: {
                             caption: 'Allow from',
                             attr: 'placeholder="127.0.0.1, 192.168.1.0/24"'
-                        }
+                        },
+                        hint: 'You can specify several using commas'
                     }
                 ]
             },
@@ -187,7 +188,8 @@ $(function() {
                         html: {
                             caption: 'Minimum requests for caching',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'Uri will be cached after that number of requests'
                     },
                     {
                         name: 'php_custom_errors',

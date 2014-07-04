@@ -38,7 +38,7 @@ $config = array(
     'slowdown_rps'         => 0,
     'connections_ip_php'   => 20,
     'normal_rps_php'       => 10,
-    'max_rps_php'          => 51,
+    'max_rps_php'          => 50,
     'slowdown_rps_php'     => 0,
     'backend_timeout'      => 10
 );

@@ -37,7 +37,7 @@ $(function() {
                         hint: 'Having "www." prefix will force "www." 301 redirect and vice-versa',
                         html: {
                             caption: 'Server name',
-                            attr: 'placeholder="example.com"'
+                            attr: 'placeholder="test.com"'
                         }
                     },
                     {
@@ -108,7 +108,7 @@ $(function() {
                             attr: 'maxlength="8" class="int"',
                             caption: 'Max upload file size (Mbs)'
                         },
-                        hint: 'Use zero for automatic value'
+                        hint: 'Use zero for default value'
                     },
                     {
                         name: 'compress_response',
@@ -171,7 +171,8 @@ $(function() {
                         type: 'checkbox',
                         html: {
                             caption: 'Execute Php scripts'
-                        }
+                        },
+                        hint: 'Turns off Php processing and restricts access to php scripts'
                     },
                     {
                         name: 'cache_php_validity',
@@ -206,7 +207,8 @@ $(function() {
                         html: {
                             caption: 'Connections per IP',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'More connections from a single IP will cause 503'
                     },
                     {
                         name: 'normal_rps_php',
@@ -214,7 +216,8 @@ $(function() {
                         html: {
                             caption: 'Normal requests per second',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'Requests with a speed up until that number will not be restricted'
                     },
                     {
                         name: 'max_rps_php',
@@ -222,14 +225,16 @@ $(function() {
                         html: {
                             caption: 'Maximum requests per second',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'Excess requests per second that are still handled but optionally slowed down to keep normal rps rate. Heigher rate would case 503'
                     },
                     {
                         name: 'slowdown_rps_php',
                         type: 'checkbox',
                         html: {
                             caption: 'Slow down excess requests'
-                        }
+                        },
+                        hint: 'Slow down excess requests to keep normal rps rate'
                     }
                 ],
                 record: {
@@ -250,77 +255,72 @@ $(function() {
                         type: 'checkbox',
                         html: {
                             caption: 'OPTIONS'
-                        }
+                        },
+                        hint: 'Returns the HTTP methods that the server supports for the specified URL'
                     },
                     {
                         name: 'method_get',
                         type: 'checkbox',
                         html: {
                             caption: 'GET'
-                        }
+                        },
+                        hint: 'Requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other effect.'
                     },
                     {
                         name: 'method_head',
                         type: 'checkbox',
                         html: {
                             caption: 'HEAD'
-                        }
+                        },
+                        hint: 'Asks for the response identical to the one that would correspond to a GET request, but without the response body.'
                     },
                     {
                         name: 'method_post',
                         type: 'checkbox',
                         html: {
                             caption: 'POST'
-                        }
+                        },
+                        hint: 'Requests that the server accept the entity enclosed in the request as a new subordinate of the web resource identified by the URI.'
                     },
                     {
                         name: 'method_put',
                         type: 'checkbox',
                         html: {
                             caption: 'PUT'
-                        }
+                        },
+                        hint: 'Requests that the enclosed entity be stored under the supplied URI'
                     },
                     {
                         name: 'method_patch',
                         type: 'checkbox',
                         html: {
                             caption: 'PATCH'
-                        }
+                        },
+                        hint: 'Is used to apply partial modifications to a resource'
                     },
                     {
                         name: 'method_delete',
                         type: 'checkbox',
                         html: {
                             caption: 'DELETE'
-                        }
+                        },
+                        hint: 'Deletes the specified resource'
                     },
                     {
                         name: 'method_trace',
                         type: 'checkbox',
                         html: {
                             caption: 'TRACE'
-                        }
-                    },
-                    {
-                        name: 'method_link',
-                        type: 'checkbox',
-                        html: {
-                            caption: 'LINK'
-                        }
-                    },
-                    {
-                        name: 'method_unlink',
-                        type: 'checkbox',
-                        html: {
-                            caption: 'UNLINK'
-                        }
+                        },
+                        hint: 'Echoes back the received request so that a client can see what (if any) changes or additions have been made by intermediate servers'
                     },
                     {
                         name: 'method_connect',
                         type: 'checkbox',
                         html: {
                             caption: 'CONNECT'
-                        }
+                        },
+                        hint: 'Converts the request connection to a transparent TCP/IP tunnel'
                     }
                 ],
                 record: {
@@ -332,8 +332,6 @@ $(function() {
                     method_patch: values.method_patch,
                     method_delete: values.method_delete,
                     method_trace: values.method_trace,
-                    method_link: values.method_link,
-                    method_unlink: values.method_unlink,
                     method_connect: values.method_connect
                 }
             },
@@ -345,14 +343,16 @@ $(function() {
                         type: 'checkbox',
                         html: {
                             caption: 'Log bots'
-                        }
+                        },
+                        hint: 'Bots are logged to a separate file or not logged at all'
                     },
                     {
                         name: 'log_humans',
                         type: 'checkbox',
                         html: {
                             caption: 'Log humans'
-                        }
+                        },
+                        hint: 'Store requests from humans to documents. Images, scripts and other assets are not logged'
                     },
                     {
                         name: 'flush_every_amount',
@@ -360,7 +360,8 @@ $(function() {
                         html: {
                             caption: 'Flush every (kbs)',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'Do not write logs to disk until there\'s a selecte amount of log data to write'
                     },
                     {
                         name: 'flush_every_time',
@@ -368,7 +369,8 @@ $(function() {
                         html: {
                             caption: 'Flush every (minutes)',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'Write log data every that amount of minutes'
                     },
                     {
                         name: 'log_compress',
@@ -391,7 +393,8 @@ $(function() {
                                 },
                         html: {
                             caption: 'Log compression level'
-                        }
+                        },
+                        hint: 'Write compressed data (readable by zless, zcat etc.)'
                     },
                     {
                         name: 'error_level',
@@ -399,6 +402,7 @@ $(function() {
                         html: {
                             caption: 'Error log level'
                         },
+                        hint: 'Sets errog log verbosoty',
                         options:
                                 {
                                     items: [
@@ -433,7 +437,8 @@ $(function() {
                         html: {
                             caption: 'Connections per IP',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'More connections from a single IP will cause 503'
                     },
                     {
                         name: 'normal_rps',
@@ -441,7 +446,8 @@ $(function() {
                         html: {
                             caption: 'Normal requests per second',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'Requests with a speed up until that number will not be restricted'
                     },
                     {
                         name: 'max_rps',
@@ -449,14 +455,16 @@ $(function() {
                         html: {
                             caption: 'Maximum requests per second',
                             attr: 'class="int"'
-                        }
+                        },
+                        hint: 'Excess requests per second that are still handled but optionally slowed down to keep normal rps rate. Heigher rate would case 503'
                     },
                     {
                         name: 'slowdown_rps',
                         type: 'checkbox',
                         html: {
                             caption: 'Slow down excess requests'
-                        }
+                        },
+                        hint: 'Slow down excess requests to keep normal rps rate'
                     }
                 ],
                 record: {
@@ -475,7 +483,8 @@ $(function() {
                         html: {
                             caption: 'Wait for Php response (seconds)',
                             attr: 'class="int"'
-                        }
+                        }, 
+                        hint: 'If Php takes longer that this, connection is closed with 504'
                     }
                 ],
                 record: {
@@ -549,4 +558,8 @@ $(function() {
 
         onLayoutRendered('server');
     });
+
+    if (location.port !== 80) {
+        $('#generate_button').prop('disabled', false);
+    }
 });

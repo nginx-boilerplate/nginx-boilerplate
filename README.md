@@ -21,6 +21,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
 
 ## Run in UI generator mode
  * Run `bin/ui.sh` to start the UI (you can provide a `server:port` as an optional argument)
+ * (optional) Or set up `ui/` as the document root for a new virtualhost and run it from a web-server
  * Got to `localhost:5517` (or whatever you specified as an optional argument)
  * Configure your boilerplate and hit the download button
  * (optional) If you have boilerplate running in a trial mode, hit test drive button to see how it works live!

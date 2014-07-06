@@ -62,7 +62,6 @@ if (!empty($_GET)) {
     $baseDir = realpath(__DIR__ . '/../src/nginx-bp/') . '/';
     $bootstrap = file_get_contents($baseDir . 'bootstrap/example.conf');
 
-    $bootstrap = str_replace('localhost', $values['server_name'], $bootstrap);
     $bootstrap = str_replace('/var/www/example/', $values['root_dir'], $bootstrap);
     //$bootstrap = str_replace('80;', $values['http_port'] . ';', $bootstrap);
 
@@ -256,6 +255,7 @@ if (!empty($_GET)) {
     }
 
     $server = str_replace('www.localhost', $otherServerName, $server);
+    $server = str_replace('localhost', $values['server_name'], $server);
 
     //return          302 http://localhost;
     $server = preg_replace('~(\s+return[^;]+://)[^;]+(;)~iUsm', '\1' . $values['server_name'] . '\2', $server);
@@ -299,10 +299,9 @@ if (!empty($_GET)) {
         link('../sites-available/' . $values['server_name'] . '.conf', $values['server_name'] . '.conf');
     }
 
-    posix_setuid(1000);
-
     if (isset($values['download'])) {
 
+        posix_setuid(1000);
         $dest = '/tmp/' . uniqid('ngbp');
 
         mkdir($dest);

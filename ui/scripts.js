@@ -172,7 +172,7 @@ $(function() {
                         html: {
                             caption: 'Execute Php scripts'
                         },
-                        hint: 'Turns off Php processing and restricts access to php scripts'
+                        hint: 'Turns off Php processing and restricts access to Php scripts if checkbox is off'
                     },
                     {
                         name: 'cache_php_validity',

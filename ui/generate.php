@@ -327,7 +327,7 @@ if (!empty($_GET)) {
         `cd $dest && zip --symlinks -r ngbp.zip *`;
 
         header('Content-Type: application/zip');
-        header('Content-Disposition: attachment; filename=' . basename($dest . '/ngbp.zip'));
+        header('Content-Disposition: attachment; filename=' . basename($dest .'/'. $values['server_name'].'_nginx_boilerplate.zip'));
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');

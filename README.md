@@ -11,7 +11,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Advanced logging
 
 ## Demo
- * http://ngbp.umkus.com/
+ * http://nginx-boilerplate.umkus.com/
 
 ## Run in trial mode
  * Run `bin/run.sh` as privileged user to restart Nginx in boilerplate mode

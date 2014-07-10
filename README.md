@@ -28,6 +28,6 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
 
 ## If something doesn't work
  * Make sure you have `cgi.fix_pathinfo` set to `1` or commented out in php.ini
- * Check the contents of `/var/log/nginx/default.error.log`
+ * Check the contents of `/var/log/nginx/yoursitename.error.log`
  * Make sure to have proper file/folder permissions for config files
  * Create an issue on the project's github page

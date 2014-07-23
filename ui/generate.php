@@ -296,7 +296,7 @@ if (!empty($_GET)) {
     chdir($baseDir . '../sites-enabled/');
 
     if (!file_exists($values['server_name'] . '.conf')) {
-        link('../sites-available/' . $values['server_name'] . '.conf', $values['server_name'] . '.conf');
+        $res = symlink('../sites-available/' . $values['server_name'] . '.conf', $values['server_name'] . '.conf');
     }
 
     if (isset($values['download'])) {

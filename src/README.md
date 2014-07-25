@@ -3,7 +3,7 @@ To use these configs either copy them as they are or use the UI boilerplate gene
 To install boilerplate copy files in this directory over to `/etc/nginx`.
 If this is the first time installing nginx boilerplate backup your original `/etc/nginx` contents.
 
-To further customize your generated boilerplate site please edit the site config `nginx-bp/bootstrap/SITE_URL.conf`
+To further customize your generated boilerplate site please edit the site config `sites-available/SITE_URL.conf`
 
 You should not change other files if you want the following features supported:
  * drop-in installation and independent operation of other generated boilerplate sites 

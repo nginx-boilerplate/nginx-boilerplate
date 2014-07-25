@@ -209,13 +209,13 @@ if (!empty($_GET)) {
 
     $bootstrap = str_replace(' error;', ' ' . $errorLevel . ';', $bootstrap);
 
-    if (!$values['log_bots']) {
-        $bootstrap = preg_replace('~(access_[^;]+bots[^;]+;)$~iUsm', '#\1', $bootstrap);
-    }
-
     if (!$values['log_humans']) {
         $bootstrap = preg_replace('~(access_[^;]+access[^;]+;)$~iUsm', '#\1', $bootstrap);
     }
+
+    $bootstrap = str_replace('localhost.error.log', $values['server_name'] . '.error.log', $bootstrap);
+    $bootstrap = str_replace('localhost.access.log', $values['server_name'] . '.access.log', $bootstrap);
+    $bootstrap = str_replace('localhost.bots.log', $values['server_name'] . '.bots.log', $bootstrap);
 
     if ($values['flush_every_amount']) {
         $bufStr = ' buffer=' . $values['flush_every_amount'] . 'k';
@@ -327,7 +327,7 @@ if (!empty($_GET)) {
         `cd $dest && zip --symlinks -r ngbp.zip *`;
 
         header('Content-Type: application/zip');
-        header('Content-Disposition: attachment; filename=' . basename($dest .'/'. $values['server_name'].'_nginx_boilerplate.zip'));
+        header('Content-Disposition: attachment; filename=' . basename($dest . '/' . $values['server_name'] . '_nginx_boilerplate.zip'));
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');

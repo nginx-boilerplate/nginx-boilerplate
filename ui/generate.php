@@ -258,7 +258,7 @@ if (!empty($_GET)) {
     $server = str_replace('localhost', $values['server_name'], $server);
 
     //return          302 http://localhost;
-    $server = preg_replace('~(\s+return[^;]+://)[^;]+(;)~iUsm', '\1' . $values['server_name'] . '\2', $server);
+    $server = preg_replace('~(\s+return[^;]+://)[^$]+(\$request_uri;)~iUsm', '\1' . $values['server_name'] . '\2', $server);
 
     if ($values['support_https'] == 1) {
         $server = str_replace('#listen', 'listen', $server);

@@ -109,6 +109,7 @@ if (!empty($_GET)) {
     }
 
     if (!$values['use_php']) {
+        $bootstrap = preg_replace("~^(\s*)(fastcgi_pass.*)$~ismU", '\1#\2', $bootstrap);
         $bootstrap = preg_replace("~^(\s*)(include\s+\S+php\.conf;)$~ismU", '\1#\2', $bootstrap);
         $bootstrap = preg_replace("~^(\s*)#(return 405;)$~ismU", '\1\2', $bootstrap);
     }

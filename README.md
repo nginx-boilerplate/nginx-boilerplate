@@ -16,14 +16,17 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * /etc/hosts needs changing for local development
 
 ## Running with Docker (recommended)
+ * `cd ~`
  * `git clone git@github.com:Umkus/nginx-boilerplate.git`
  * `cd nginx-boilerplate/`
  * `docker-compose up`
- * Update your `/etc/hosts` in accordance with `test/hosts`
+ * Update your `/etc/hosts` in accordance with `test/hosts` if required
 
 ## Running "bare"
  * `git clone git@github.com:Umkus/nginx-boilerplate.git`
  * `sudo cp nginx-boilerplate /etc/nginx/`
+ * Restart nginx
+ * Update your `/etc/hosts` in accordance with `test/hosts` if required
 
 ## If something doesn't work
  * Make sure you have `cgi.fix_pathinfo` set to `1` or commented out in php.ini

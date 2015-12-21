@@ -4,5 +4,5 @@ src/sites-available/*
 src/sites-enabled/*
 !src/sites-enabled/invalid.conf
 !src/sites-enabled/example.com.conf
-test/node_modules/
+node_modules
 .idea

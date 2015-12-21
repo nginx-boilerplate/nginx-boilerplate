@@ -11,7 +11,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Advanced logging
  
 ## Requirements (at least one)
- * `Docker` and `Docker Compose` to run it anywhere
+ * [Docker](https://www.docker.com/docker-toolbox) to run it anywhere
  * `Nginx` >= `1.7` to run it "bare"
  * /etc/hosts needs changing for local development
 

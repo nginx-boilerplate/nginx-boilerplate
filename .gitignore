@@ -1,8 +1,8 @@
-src/sites-available/*
-!src/sites-available/invalid.conf
-!src/sites-available/example.com.conf
-src/sites-enabled/*
-!src/sites-enabled/invalid.conf
-!src/sites-enabled/example.com.conf
-node_modules
+sites-available/*
+!sites-available/default.conf
+!sites-available/nginx.boilerplate.conf
+sites-enabled/*
+!sites-enabled/default.conf
+!sites-enabled/nginx.boilerplate.conf
 .idea
+.DS_Store

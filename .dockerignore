@@ -1,7 +1,0 @@
-LICENSE
-README.md
-docker-compose.yml
-.idea
-.gitignore
-.DS_Store
-node_modules

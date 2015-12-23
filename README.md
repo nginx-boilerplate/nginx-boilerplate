@@ -12,7 +12,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  
 ## Requirements
  * `Nginx` >= `1.7`
- * /etc/hosts might need changing for local development 
+ * `/etc/hosts` might need changing for local development
 
 ## If something doesn't work
  * Make sure you have `cgi.fix_pathinfo` set to `1` or commented out in php.ini

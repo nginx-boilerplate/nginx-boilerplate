@@ -1,5 +1,7 @@
 #Nginx Boilerplate 
 
+[![Chat](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/nginx-boilerplate )
+
 Awesome Nginx configuration template and a set of handy must-have snippets.
 
 ## Features

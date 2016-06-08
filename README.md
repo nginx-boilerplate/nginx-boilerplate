@@ -17,7 +17,6 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * `/etc/hosts` might need changing for local development
 
 ## If something doesn't work
- * Make sure you have `cgi.fix_pathinfo` set to `1` or commented out in php.ini
  * Check the contents of the site's access/error logs
  * Make sure to have proper file/folder permissions
  * Create an issue on the project's github page

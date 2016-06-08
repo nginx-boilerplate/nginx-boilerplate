@@ -4,5 +4,7 @@ sites-available/*
 sites-enabled/*
 !sites-enabled/default.conf
 !sites-enabled/nginx.boilerplate.conf
+certs/*
+!certs/
 .idea
 .DS_Store

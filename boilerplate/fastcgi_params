@@ -5,6 +5,7 @@ fastcgi_param SERVER_ADDR           "$server_addr";
 fastcgi_param SERVER_PORT           "$server_port";
 fastcgi_param SERVER_PROTOCOL       "$server_protocol";
 fastcgi_param SERVER_ADMIN          "admin@$server_name";
+fastcgi_param HTTPS                 $https if_not_empty;
 
 fastcgi_param GATEWAY_INTERFACE     "CGI/1.1";
 

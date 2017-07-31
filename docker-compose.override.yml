@@ -1,8 +1,12 @@
 version: '3'
 services:
     nginx:
-        container_name: nginx-boilerplate
+        container_name: nginx
         build: .
         volumes:
             - ./logs/:/var/log/nginx/
             - ./:/etc/nginx/:ro
+
+    fpm:
+        container_name: fpm
+        image: php:fpm-alpine

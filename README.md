@@ -49,8 +49,6 @@ To not have to restart containers each time you modify your configs, you can sim
 $ docker-compose exec nginx nginx -s reload
 ```
 
-Now simply open [https://localhost/info.php](https://localhost/info.php)!
-
 ### Logs
 By default a new `logs/` directory should be created in the project directory, that directly maps to the nginx logs directory.
 

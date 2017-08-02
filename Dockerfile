@@ -12,7 +12,6 @@ subjectAltName = @alt_names \n\
 [alt_names] \n\
 DNS.1 = *.localhost \n\
 DNS.2 = localhost' > openssl.cnf
-
 RUN     openssl req -new -newkey rsa:2048 -sha1 -days 3650 -nodes -x509 -keyout cert.key -out cert.crt -config openssl.cnf
 
 FROM    nginx:alpine

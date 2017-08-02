@@ -2,11 +2,13 @@ version: '3'
 services:
     nginx:
         container_name: nginx
+        restart: always
         build: .
         volumes:
             - ./logs/:/var/log/nginx/
             - ./:/etc/nginx/:ro
 
     fpm:
+        restart: always
         container_name: fpm
         image: php:fpm-alpine

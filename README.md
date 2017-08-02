@@ -54,6 +54,11 @@ Now simply open [http://localhost/info.php]()!
 ### Logs
 By default a new `logs/` directory should be created in the project directory, that directly maps to the nginx logs directory.
 
+
+### Customization
+
+The main virtual host definition is located at `servers/main.conf`.
+
 ## If something doesn't work
  * Check error and access logs
  * [Create an issue](https://github.com/nginx-boilerplate/nginx-boilerplate/issues/new) on the project's github page

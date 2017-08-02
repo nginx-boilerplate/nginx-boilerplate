@@ -1,0 +1,8 @@
+version: '3'
+services:
+    nginx:
+        hostname: ${HOST_NAME}
+        image: umkus/nginx-boilerplate
+        ports:
+            - 80:80
+            - 443:443

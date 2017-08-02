@@ -49,12 +49,6 @@ To not have to restart containers each time you modify your configs, you can sim
 $ docker-compose exec nginx nginx -s reload
 ```
 
-### Setting up PHP
-Run the following to create a test php script inside the fpm container:
-```bash
-$ docker-compose exec fpm sh -c "echo '<?php phpinfo();' > /var/www/html/info.php"
-```
-
 Now simply open [http://localhost/info.php]()!
 
 ### Logs

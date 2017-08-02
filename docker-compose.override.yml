@@ -11,4 +11,4 @@ services:
     fpm:
         restart: always
         container_name: fpm
-        image: php:fpm-alpine
+        image: umkus/nginx-boilerplate-php

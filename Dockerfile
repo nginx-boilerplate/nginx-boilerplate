@@ -16,5 +16,5 @@ RUN     openssl req -new -newkey rsa:2048 -sha1 -days 3650 -nodes -x509 -keyout 
 
 FROM    nginx:alpine
 COPY    . /etc/nginx/
-COPY --from=keys cert.key /etc/ssl/private/cert.key
-COPY --from=keys cert.crt /etc/ssl/certs/cert.crt
+COPY    --from=keys cert.key /etc/ssl/private/cert.key
+COPY    --from=keys cert.crt /etc/ssl/certs/cert.crt

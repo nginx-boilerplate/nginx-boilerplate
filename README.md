@@ -30,7 +30,7 @@ Additonally two basic docker-compose configs are provided: `docker-compose.yml` 
 The first contains the base/production version of the docker run config while the second transparently extends it to provide extra features for local development.
 Only `docker-compose.yml` should be used in production.
 
-`docker-compose.verride.yml` also contains an empty php fpm installation for the sake of the demo. Also because the boilerplate assumes the usage of php-fpm and fails to start otherwise.
+`docker-compose.override.yml` also contains an empty php fpm installation for the sake of the demo. Also because the boilerplate assumes the usage of php-fpm and fails to start otherwise.
 
 ### Check it out
 

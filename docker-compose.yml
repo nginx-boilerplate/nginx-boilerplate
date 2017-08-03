@@ -1,7 +1,7 @@
 version: '3.1'
 services:
     nginx:
-        hostname: ${HOST_NAME:-localhost}
+        hostname: localhost
         image: umkus/nginx-boilerplate
         ports:
             - 80:80

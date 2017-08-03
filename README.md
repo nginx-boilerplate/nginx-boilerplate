@@ -14,11 +14,11 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Various predefined locations
  * Advanced logging
  * SEO
- * Docker-ready
+ * Docker/Swarm ready
 
 ## Requirements
- * Docker
- * docker-compose
+ * `Docker` >= `1.13`
+ * `docker-compose` >= `3.1`
  
 Configs themselves depend on `Nginx` >= `1.9.5`, if used separately.
  
@@ -52,10 +52,43 @@ $ docker-compose exec nginx nginx -s reload
 ### Logs
 By default a new `logs/` directory should be created in the project directory, that directly maps to the nginx logs directory.
 
+#### Docker swarm
+To run in Docker swarm first make sure your Docker setup is in swarm mode:
+
+```bash
+$ docker swarm init
+```
+
+First of all you need to define your domain ssl certificate and key as a swarm secret:
+
+```bash
+$ docker secret create cert.crt your_certificate.crt
+$ docker secret create cert.key your_certificate_key.key
+```
+
+Now to start or update nginx (and php) services in the swarm run:
+
+```bash
+$ docker stack deploy -c docker-compose.yml --with-registry-auth --prune app
+```
+
+To see nginx logs run:
+```bash
+$ docker service logs -f app_nginx
+```
+
+To scale services:
+```bash
+$ docker service scale app_nginx=2 app_fpm=10
+```
+
+Now you can refresh the page a couple of times and notice different host names that your requests land on.
 
 ### Customization
 
 The main virtual host definition is located at `servers/main.conf`.
+Probably the best way to work with the repo is by cloning it and hooking up docker hub to automatically build a new image whenever there's new code.
+ 
 
 ## If something doesn't work
  * Check error and access logs

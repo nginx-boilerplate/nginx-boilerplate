@@ -20,7 +20,7 @@ Awesome Nginx configuration template and a set of handy must-have snippets.
  * Docker
  * docker-compose
  
-Configs themselves depend on `Nginx` >= `1.7`, if used separately.
+Configs themselves depend on `Nginx` >= `1.9.5`, if used separately.
  
 ## Usage
 

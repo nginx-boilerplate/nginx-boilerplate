@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 services:
     nginx:
         container_name: nginx
@@ -9,6 +9,5 @@ services:
             - ./:/etc/nginx/:ro
 
     fpm:
-        restart: always
         container_name: fpm
-        image: umkus/nginx-boilerplate-php
+        restart: always

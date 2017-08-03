@@ -1,8 +1,19 @@
-version: '3'
+version: '3.1'
 services:
     nginx:
-        hostname: ${HOST_NAME}
+        hostname: ${HOST_NAME:-localhost}
         image: umkus/nginx-boilerplate
         ports:
             - 80:80
             - 443:443
+        secrets:
+            - cert.crt
+            - cert.key
+    fpm:
+        image: umkus/nginx-boilerplate-php
+
+secrets:
+    cert.crt:
+        external: true
+    cert.key:
+        external: true

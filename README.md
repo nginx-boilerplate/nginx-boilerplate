@@ -40,7 +40,7 @@ $ docker-compose up -d
 
 Now open [https://localhost](https://localhost) in your browser!
 
-By default the bundled nginx image is provided with self-signed wildcard certificate for the chosen domain name (see `.env`), so you will have to instruct your browser to trust it.
+By default the bundled nginx image is provided with self-signed wildcard certificate for *.localhost, so you will have to instruct your browser to trust it.
 
 ### Reloading
 To not have to restart containers each time you modify your configs, you can simply run:

@@ -32,13 +32,25 @@ Only `docker-compose.yml` should be used in production.
 
 `docker-compose.verride.yml` also contains an empty php fpm installation for the sake of the demo. Also because the boilerplate assumes the usage of php-fpm and fails to start otherwise.
 
-### Quick start
-For a quick start simply run:
+### Check it out
+
+You only need docker for this, simply run:
+
+```bash
+$ docker run --rm -it -p 80:80 -p 443:443 umkus/nginx-boilerplate
+```
+
+Now open up [https://localhost/go/home](https://localhost/go/home) in your browser!
+
+And since you only run the nginx part there, there's no support for php.
+If you open the main page, which supposed to give you the `phpinfo` output, it's going to load for 10 secods and give you an error page.  
+
+### Running it
+
+For a quick and dirty localhost setup run:
 ```bash
 $ docker-compose up -d
 ```
-
-Now open [https://localhost](https://localhost) in your browser!
 
 By default the bundled nginx image is provided with self-signed wildcard certificate for *.localhost, so you will have to instruct your browser to trust it.
 
@@ -51,6 +63,7 @@ $ docker-compose exec nginx nginx -s reload
 
 ### Logs
 By default a new `logs/` directory should be created in the project directory, that directly maps to the nginx logs directory.
+But you can also run the `docker-compose up` (without the `-d` bit) to watch the stream of logs as they come. 
 
 #### Docker swarm
 To run in Docker swarm first make sure your Docker setup is in swarm mode:

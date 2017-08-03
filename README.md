@@ -37,7 +37,7 @@ Only `docker-compose.yml` should be used in production.
 You only need docker for this, simply run:
 
 ```bash
-$ docker run --rm -it -p 80:80 -p 443:443 umkus/nginx-boilerplate
+$ docker run --rm -it -p 80:80 -p 443:443 nginxboilerplate/nginx-boilerplate
 ```
 
 Now open up [https://localhost/go/home](https://localhost/go/home) in your browser!

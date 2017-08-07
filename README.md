@@ -62,8 +62,7 @@ $ docker-compose exec nginx nginx -s reload
 ```
 
 ### Logs
-By default a new `logs/` directory should be created in the project directory, that directly maps to the nginx logs directory.
-But you can also run the `docker-compose up` (without the `-d` bit) to watch the stream of logs as they come. 
+By default a new `logs/` directory should be created in the project directory, that directly maps to the nginx logs directory. 
 
 #### Docker swarm
 To run in Docker swarm first make sure your Docker setup is in swarm mode:

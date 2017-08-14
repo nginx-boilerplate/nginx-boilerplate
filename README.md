@@ -1,4 +1,4 @@
-#Nginx Boilerplate 
+# Nginx Boilerplate 
 
 [![Chat](https://img.shields.io/gitter/room/gitterHQ/gitter.svg)](https://gitter.im/nginx-boilerplate/nginx-boilerplate)
 

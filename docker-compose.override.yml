@@ -4,7 +4,7 @@ services:
         container_name: nginx
         build: .
         volumes:
-            #- ./logs/:/var/log/nginx/
+            #- ./logs/:/var/log/nginx/ # Uncomment to save logs to respective files instead of the STDOUT
             - ./:/etc/nginx/:ro
 
     fpm:

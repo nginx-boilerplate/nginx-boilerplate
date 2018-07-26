@@ -26,7 +26,7 @@ Configs themselves depend on `Nginx` >= `1.9.5`, if used separately.
 
 ### Abstract
 Nginx boilerplate builds on top of official [nginx](https://hub.docker.com/_/nginx/) and [php](https://hub.docker.com/_/php/) alpine Docker images.
-Additonally two basic docker-compose configs are provided: `docker-compose.yml` and `docker-compose.override.yml`.
+Additionally two basic docker-compose configs are provided: `docker-compose.yml` and `docker-compose.override.yml`.
 The first contains the base/production version of the docker run config while the second transparently extends it to provide extra features for local development.
 Only `docker-compose.yml` should be used in production.
 
